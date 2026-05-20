@@ -1,8 +1,7 @@
 <?php
 require_once __DIR__ . '/includes/db.php';
 require_once __DIR__ . '/includes/event_helper.php';
-require_once __DIR__ . '/includes/header.php';
-require_once __DIR__ . '/includes/footer.php';
+
 
 if (!isLoggedIn()) {
     redirect('login.php');
@@ -15,6 +14,9 @@ $events = getUpcomingEvents($db, $user_id);
 $months = getGermanMonths();
 $weekdays = getGermanWeekdays();
 $events_by_month = groupEventsByYearAndMonth($events);
+
+require_once __DIR__ . '/includes/header.php';
+require_once __DIR__ . '/includes/footer.php';
 
 renderHeader('Event-System - Festival Kalender', 'index');
 ?>
