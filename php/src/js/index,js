@@ -1,0 +1,51 @@
+function filterEvents() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const cards = document.getElementsByClassName('event-card');
+
+    for (let i = 0; i < cards.length; i++) {
+        const title = cards[i].getAttribute('data-title');
+        cards[i].style.display = title && title.includes(filter) ? '' : 'none';
+    }
+}
+
+function filterYear(year, button) {
+    const groups = document.getElementsByClassName('year-group');
+    const btns = document.getElementsByClassName('year-btn');
+
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].classList.remove('aktiv');
+    }
+
+    if (button) {
+        button.classList.add('aktiv');
+    }
+
+    for (let i = 0; i < groups.length; i++) {
+        const groupYear = parseInt(groups[i].getAttribute('data-year'), 10);
+        groups[i].style.display = groupYear === year ? '' : 'none';
+    }
+}
+
+function initializeYearFilter(defaultYear = 2026) {
+    const groups = document.getElementsByClassName('year-group');
+
+    for (let i = 0; i < groups.length; i++) {
+        const groupYear = parseInt(groups[i].getAttribute('data-year'), 10);
+        groups[i].style.display = groupYear === defaultYear ? '' : 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initializeYearFilter();
+    const yearButtons = document.querySelectorAll('.year-btn');
+
+    yearButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const year = parseInt(button.textContent, 10);
+            if (!Number.isNaN(year)) {
+                filterYear(year, button);
+            }
+        });
+    });
+});
