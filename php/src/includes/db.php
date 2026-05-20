@@ -1,7 +1,6 @@
 <?php
 
 // Wird ebenfalls für Authentifzierung verwendet - Je nach eingeloggtem Benutzer wird der Zugriff festgelegt
-session_start();
 
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
