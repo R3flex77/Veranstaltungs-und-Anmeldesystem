@@ -1,6 +1,10 @@
 <?php
-
 // Wird ebenfalls für Authentifzierung verwendet - Je nach eingeloggtem Benutzer wird der Zugriff festgelegt
+if (session_status() === PHP_SESSION_NONE) {
+    if (!headers_sent()) {
+        session_start();
+    }
+}
 
 function isLoggedIn() {
     return isset($_SESSION['user_id']);
@@ -41,4 +45,3 @@ class Database {
         return $this->conn;
     }
 }
-?>
