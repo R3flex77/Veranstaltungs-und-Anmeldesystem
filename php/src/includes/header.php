@@ -17,6 +17,10 @@ function renderHeader(string $pageTitle = 'Event-System', string $activePage = '
                 <div class="nav-links">
                     <a href="index.php" class="<?php echo $activePage === 'index' ? 'active' : ''; ?>">STARTSEITE</a>
                     <a href="my_events.php" class="<?php echo $activePage === 'my_events' ? 'active' : ''; ?>">MEINE EVENTS</a>
+                    <?php if (isOrganizer()): ?>
+                        <a href="create_event.php" class="<?php echo $activePage === 'create_event' ? 'active' : ''; ?>">EVENT ERSTELLEN</a>
+                        <a href="dashboard.php" class="<?php echo $activePage === 'dashboard' ? 'active' : ''; ?>">DASHBOARD</a>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="user-menu">
