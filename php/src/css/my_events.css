@@ -1,0 +1,320 @@
+       * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #4ecdc4;
+        }
+
+        .user-menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .logout-btn {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+        }
+
+        .username {
+            color: #4ecdc4;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 120px 40px 40px;
+        }
+
+        .page-header {
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            background: linear-gradient(135deg, #fff, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .event-card {
+            background: rgba(20, 20, 30, 0.9);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+
+        .status-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .status-upcoming {
+            background: rgba(40, 167, 69, 0.9);
+        }
+
+        .status-past {
+            background: rgba(108, 117, 125, 0.9);
+        }
+
+        .date-badge {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .event-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-date {
+            color: #4ecdc4;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .event-location {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .booking-info {
+            background: rgba(78, 205, 196, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #4ecdc4;
+        }
+
+        .btn-unregister {
+            width: 100%;
+            padding: 12px;
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            border-radius: 10px;
+            color: #dc3545;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-unregister:hover {
+            background: rgba(220, 53, 69, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .no-events {
+            text-align: center;
+            padding: 80px;
+            background: rgba(20, 20, 30, 0.5);
+            border-radius: 20px;
+        }
+
+        .no-events .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .no-events h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .no-events p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .btn-browse {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-browse:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: #0a0a0a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 100px 20px 30px;
+            }
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-header h1 {
+                font-size: 28px;
+            }
+        }
+
+
+        .notification {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 1100;
+            padding: 15px 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 0.3s ease-out, fadeOut 0.5s ease-out 3.5s forwards;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+
+        .notification.success {
+            background: rgba(40, 167, 69, 0.95);
+            color: white;
+        }
+
+        .notification.error {
+            background: rgba(220, 53, 69, 0.95);
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; visibility: hidden; }
+        }
