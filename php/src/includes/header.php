@@ -1,5 +1,5 @@
 <?php
-function renderHeader(string $pageTitle = 'Event-System', string $activePage = 'index') {
+function renderHeader(string $pageTitle = 'Event-System', string $activePage = 'index', string $pageCss = '') {
     ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -8,6 +8,9 @@ function renderHeader(string $pageTitle = 'Event-System', string $activePage = '
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($pageTitle); ?></title>
     <link rel="stylesheet" href="css/style.css">
+    <?php if ($pageCss !== ''): ?>
+        <link rel="stylesheet" href="<?php echo htmlspecialchars($pageCss); ?>">
+    <?php endif; ?>
 </head>
 <body>
     <header class="main-header">
