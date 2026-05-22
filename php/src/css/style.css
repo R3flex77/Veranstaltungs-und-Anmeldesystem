@@ -94,7 +94,8 @@ body {
 .hero {
     height: 80vh;
     min-height: 600px;
-    background: url('../img/background.jpg') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+                url('../img/background.jpg') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
