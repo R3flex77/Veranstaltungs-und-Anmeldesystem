@@ -45,7 +45,6 @@
         <div class="form-group">
             <label>Event-Bild</label>
             <div class="image-upload" onclick="document.getElementById('imageInput').click()">
-                <div class="upload-icon">🖼️</div>
                 <div class="upload-text">Klicken Sie hier, um ein Bild hochzuladen</div>
                 <div class="upload-hint">Empfohlen: 800x600px, JPG, PNG oder WEBP (max. 5MB)</div>
             </div>
@@ -64,8 +63,8 @@
         </div>
         
         <div class="form-buttons">
-            <button type="submit" class="btn-submit">🚀 EVENT ERSTELLEN</button>
-            <a href="index.php" class="btn-cancel">❌ ABBRECHEN</a>
+            <button type="submit" class="btn-submit">EVENT ERSTELLEN</button>
+            <a href="index.php" class="btn-cancel">ABBRECHEN</a>
         </div>
     </form>
 </div>
