@@ -28,7 +28,7 @@ function renderHeader(string $pageTitle = 'Event-System', string $activePage = '
                 </div>
             </div>
             <div class="user-menu">
-                <a href="logout.php" class="logout-btn">ABMELDEN <span class="username">(<?php echo htmlspecialchars($_SESSION['username']); ?>)</span></a>
+                <a href="logout.php" class="logout-btn">ABMELDEN <span class="username"></span></a>
             </div>
         </div>
     </header>
