@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -112,6 +113,17 @@
             position: relative;
         }
 
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #667eea;
+            width: 20px;
+            text-align: center;
+        }
+
         .input-group input {
             width: 100%;
             padding: 15px 15px 15px 50px;
@@ -128,14 +140,6 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .input-group .icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-        }
-
         button {
             width: 100%;
             padding: 15px;
@@ -148,6 +152,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 10px;
+        }
+
+        button i {
+            margin-right: 8px;
         }
 
         button:hover {
@@ -168,6 +176,10 @@
             text-align: center;
             border-left: 4px solid #c33;
             animation: shake 0.5s ease;
+        }
+
+        .error i {
+            margin-right: 8px;
         }
 
         @keyframes shake {
@@ -199,7 +211,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .login-card {
                 padding: 30px 20px;
@@ -219,26 +230,30 @@
     <div class="login-container">
         <div class="login-card">
             <div class="logo">
+                <i class="fas fa-calendar-alt" style="font-size: 48px; color: #667eea; margin-bottom: 10px;"></i>
                 <h1>Event-System</h1>
                 <p>Willkommen zurück!</p>
             </div>
             
-            <h2>Anmelden</h2>
-            
             <?php if (!empty($error)): ?>
-                <div class="error"><?php echo htmlspecialchars($error); ?></div>
+                <div class="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <?php echo htmlspecialchars($error); ?>
+                </div>
             <?php endif; ?>
             
             <form method="POST">
                 <div class="input-group">
-                    <span class="icon">👤</span>
+                    <i class="fas fa-user"></i>
                     <input type="text" name="username" placeholder="Benutzername" required>
                 </div>
                 <div class="input-group">
-                    <span class="icon">🔒</span>
+                    <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Passwort" required>
                 </div>
-                <button type="submit">Einloggen</button>
+                <button type="submit">
+                    <i class="fas fa-arrow-right-to-bracket"></i> Einloggen
+                </button>
             </form>
             
             <div class="register-link">
