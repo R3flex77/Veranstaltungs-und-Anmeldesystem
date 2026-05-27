@@ -58,15 +58,22 @@ if (!isset($events_by_month) || !isset($months) || !isset($weekdays)) {
                                                 <div class="progress-fill" style="width: <?php echo htmlspecialchars($capacityPercentage); ?>%"></div>
                                             </div>
                                         </div>
-                                        <?php if ($isRegistered): ?>
-                                            <button class="btn-book angemeldet" disabled>BEREITS ANGEMELDET</button>
-                                        <?php elseif (!isOrganizer() && $available > 0): ?>
-                                            <a href="api/register_event.php?event_id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-book" onclick="return confirm('Möchtest du dich für \'<?php echo addslashes(htmlspecialchars($event['title'])); ?>\' anmelden?')">🎫 ANMELDEN</a>
-                                        <?php elseif (!isOrganizer() && $available <= 0): ?>
-                                            <button class="btn-book deaktiviert" disabled>AUSGEBUCHT</button>
-                                        <?php else: ?>
-                                            <a href="dashboard.php" class="btn-book">EVENT VERWALTEN</a>
-                                        <?php endif; ?>
+                                        <div class="event-buttons">
+                                            <?php if ($isRegistered): ?>
+                                                <button class="btn-book angemeldet" disabled>BEREITS ANGEMELDET</button>
+                                            <?php elseif (!isOrganizer() && $available > 0): ?>
+                                                <a href="api/register_event.php?event_id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-book" onclick="return confirm('Möchtest du dich für \'<?php echo addslashes(htmlspecialchars($event['title'])); ?>\' anmelden?')">🎫 ANMELDEN</a>
+                                            <?php elseif (!isOrganizer() && $available <= 0): ?>
+                                                <button class="btn-book deaktiviert" disabled>AUSGEBUCHT</button>
+                                            <?php else: ?>
+                                                <a href="dashboard.php" class="btn-book">EVENT VERWALTEN</a>
+                                            <?php endif; ?>
+                                            
+  
+                                            <a href="event_details.php?id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-details">
+                                                📖 DETAILS
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
