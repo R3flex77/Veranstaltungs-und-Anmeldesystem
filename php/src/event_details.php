@@ -23,7 +23,7 @@ if ($event_id <= 0) {
 }
 
 // Event Details abrufen
-$query = "SELECT e.*, u.username as organizer_name 
+$query = "SELECT e.id, e.title, e.description, e.date, e.location, e.capacity, e.organizer_id, e.created_at, e.image, u.username as organizer_name 
           FROM events e
           JOIN users u ON e.organizer_id = u.id
           WHERE e.id = :id";
@@ -95,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
 // Hole alle registrierten Teilnehmer (für Veranstalter)
 $participants = [];
 if ($event['organizer_id'] == $user_id) {
-    // Wähle `username` statt `email`, da andere Teile des Codes `username` erwarten
     $part_query = "SELECT u.id, u.username, r.registered_at 
                    FROM registrations r
                    JOIN users u ON r.user_id = u.id
@@ -111,7 +110,10 @@ renderHeader($event['title'] . ' - Event-Details', 'my_events', '/css/event_deta
 ?>
 
 
-<section class="hero-details <?php echo !empty($event['image']) && file_exists($event['image']) ? 'has-image' : ''; ?>">
+<section class="hero-details <?php echo !empty($event['image']) && file_exists($event['image']) ? 'has-image' : ''; ?>" 
+         <?php if (!empty($event['image']) && file_exists($event['image'])): ?>
+         style="background-image: url('<?php echo htmlspecialchars($event['image']); ?>'); background-size: cover; background-position: center;"
+         <?php endif; ?>>
     <div class="hero-content">
         <span class="hero-badge <?php echo $is_upcoming ? 'badge-upcoming' : 'badge-past'; ?>">
             <?php echo $is_upcoming ? '🟢 BEVORSTEHEND' : '⚪ BEENDET'; ?>
