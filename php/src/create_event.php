@@ -8,7 +8,7 @@ require_once 'includes/create_event_logic.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event erstellen - Event-System</title>
-    <link rel="stylesheet" href="css/create_event.css">
+    <link rel="stylesheet" href="/css/create_event.css">
 </head>
 <body>
 
@@ -26,7 +26,7 @@ require_once 'includes/create_event_logic.php';
                 </div>
             </div>
             <div class="user-menu">
-                <a href="logout.php" class="logout-btn">ABMELDEN <span class="username">(<?php echo htmlspecialchars($_SESSION['username']); ?>)</span></a>
+                <a href="logout.php" class="logout-btn">ABMELDEN</a>
             </div>
         </div>
     </header>
