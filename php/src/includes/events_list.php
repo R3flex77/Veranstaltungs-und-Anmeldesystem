@@ -68,11 +68,7 @@ if (!isset($events_by_month) || !isset($months) || !isset($weekdays)) {
                                             <?php else: ?>
                                                 <a href="dashboard.php" class="btn-book">EVENT VERWALTEN</a>
                                             <?php endif; ?>
-                                            
-  
-                                            <a href="event_details.php?id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-details">
-                                                📖 DETAILS
-                                            </a>
+                                            <a href="event_details.php?id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-book" style="margin-top: 10px;">Details</a>
                                         </div>
                                     </div>
                                 </div>
