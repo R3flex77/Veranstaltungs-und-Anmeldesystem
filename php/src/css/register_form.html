@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrierung - Event-System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -87,6 +88,12 @@
             margin-bottom: 30px;
         }
 
+        .logo i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
         .logo h1 {
             font-size: 32px;
             color: #333;
@@ -106,9 +113,26 @@
             font-weight: 600;
         }
 
+        h2 i {
+            margin-right: 10px;
+            color: #667eea;
+        }
+
         .input-group {
             margin-bottom: 25px;
             position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #667eea;
+            width: 20px;
+            text-align: center;
+            z-index: 1;
         }
 
         .input-group input,
@@ -138,14 +162,6 @@
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
 
-        .input-group .icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-        }
-
         button {
             width: 100%;
             padding: 15px;
@@ -158,6 +174,10 @@
             cursor: pointer;
             transition: all 0.3s ease;
             margin-top: 10px;
+        }
+
+        button i {
+            margin-right: 8px;
         }
 
         button:hover {
@@ -180,6 +200,10 @@
             animation: shake 0.5s ease;
         }
 
+        .error i {
+            margin-right: 8px;
+        }
+
         .success {
             background: #efe;
             color: #3a3;
@@ -188,6 +212,10 @@
             margin-bottom: 20px;
             text-align: center;
             border-left: 4px solid #3a3;
+        }
+
+        .success i {
+            margin-right: 8px;
         }
 
         @keyframes shake {
@@ -207,6 +235,10 @@
             color: #666;
         }
 
+        .login-link i {
+            margin-right: 5px;
+        }
+
         .login-link a {
             color: #667eea;
             text-decoration: none;
@@ -219,7 +251,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .register-card {
                 padding: 30px 20px;
@@ -239,43 +270,50 @@
     <div class="register-container">
         <div class="register-card">
             <div class="logo">
+                <i class="fas fa-calendar-alt"></i>
                 <h1>Event-System</h1>
                 <p>Erstellen Sie Ihr Konto</p>
             </div>
             
-            <h2>Registrierung</h2>
-            
             <?php if (!empty($error)): ?>
-                <div class="error"><?php echo htmlspecialchars($error); ?></div>
+                <div class="error">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <?php echo htmlspecialchars($error); ?>
+                </div>
             <?php endif; ?>
             
             <?php if (!empty($message)): ?>
-                <div class="success"><?php echo htmlspecialchars($message); ?></div>
+                <div class="success">
+                    <i class="fas fa-check-circle"></i>
+                    <?php echo htmlspecialchars($message); ?>
+                </div>
             <?php endif; ?>
             
             <?php if (empty($message)): ?>
             <form method="POST">
                 <div class="input-group">
-                    <span class="icon">👤</span>
+                    <i class="fas fa-user"></i>
                     <input type="text" name="username" placeholder="Benutzername" required>
                 </div>
                 <div class="input-group">
-                    <span class="icon">🔒</span>
+                    <i class="fas fa-lock"></i>
                     <input type="password" name="password" placeholder="Passwort" required>
                 </div>
                 <div class="input-group">
-                    <span class="icon">🎭</span>
+                    <i class="fas fa-user-tag"></i>
                     <select name="role">
                         <option value="user">Teilnehmer</option>
                         <option value="organizer">Veranstalter</option>
                     </select>
                 </div>
-                <button type="submit">Registrieren</button>
+                <button type="submit">
+                    <i class="fas fa-check-circle"></i> Registrieren
+                </button>
             </form>
             <?php endif; ?>
             
             <div class="login-link">
-                <p>Bereits registriert? <a href="login.php">Zum Login</a></p>
+                <p><i class="fas fa-sign-in-alt"></i> Bereits registriert? <a href="login.php">Zum Login</a></p>
             </div>
         </div>
     </div>
