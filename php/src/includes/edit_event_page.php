@@ -68,7 +68,6 @@
                     <?php endif; ?>
                     
                     <div id="uploadArea" class="image-upload" onclick="document.getElementById('imageInput').click()">
-                        <div class="upload-icon">🖼️</div>
                         <div class="upload-text">Klicken Sie hier, um ein neues Bild hochzuladen</div>
                         <div class="upload-hint">Empfohlen: 800x600px, JPG, PNG oder WEBP (max. 5MB)</div>
                     </div>
@@ -101,8 +100,8 @@
                 </div>
                 
                 <div class="form-buttons">
-                    <button type="submit" class="btn-submit">💾 ÄNDERUNGEN SPEICHERN</button>
-                    <a href="dashboard.php" class="btn-cancel">❌ ABBRECHEN</a>
+                    <button type="submit" class="btn-submit">ÄNDERUNGEN SPEICHERN</button>
+                    <a href="dashboard.php" class="btn-cancel">ABBRECHEN</a>
                 </div>
             </form>
         </div>
