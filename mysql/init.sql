@@ -4,25 +4,24 @@ USE event_system;
 -- Benutzer-Tabelle
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) UNIQUE NOT NULL,
+    username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     role ENUM('user', 'organizer') DEFAULT 'user',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    INDEX idx_email (email)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Event-Tabelle
 CREATE TABLE IF NOT EXISTS events (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
-    description TEXT,
+    description TEXT NULL,
     date DATETIME NOT NULL,
     location VARCHAR(255) NOT NULL,
     capacity INT NOT NULL,
     organizer_id INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (organizer_id) REFERENCES users(id) ON DELETE CASCADE,
-    INDEX idx_date (date)
+    image VARCHAR(255) NULL,
+    FOREIGN KEY (organizer_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- Registrierungen-Tabelle
