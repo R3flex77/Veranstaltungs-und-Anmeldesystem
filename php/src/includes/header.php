@@ -8,7 +8,7 @@ function renderHeader(string $pageTitle = 'Event-System', string $activePage = '
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($pageTitle); ?></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <?php if ($pageCss !== ''): ?>
         <link rel="stylesheet" href="<?php echo htmlspecialchars($pageCss); ?>">
     <?php endif; ?>
@@ -28,7 +28,7 @@ function renderHeader(string $pageTitle = 'Event-System', string $activePage = '
                 </div>
             </div>
             <div class="user-menu">
-                <a href="logout.php" class="logout-btn">ABMELDEN <span class="username"></span></a>
+                <a href="logout.php" class="logout-btn">ABMELDEN</a>
             </div>
         </div>
     </header>
