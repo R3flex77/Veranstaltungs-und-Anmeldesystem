@@ -6,10 +6,10 @@ if (!isset($events_by_month) || !isset($months) || !isset($weekdays)) {
 <div id="eventsContainer">
     <?php if (count($events_by_month) === 0): ?>
         <div class="no-events">
-            <div class="icon">📅</div>
+            <div class="icon"><i class="fas fa-calendar-alt"></i></div>
             <h3>Keine bevorstehenden Events</h3>
             <p>Schau später wieder vorbei für tolle Events!</p>
-            <a href="dashboard.php" class="btn-book" style="display: inline-block; width: auto; padding: 12px 30px;">✨ EVENT ERSTELLEN</a>
+            <a href="dashboard.php" class="btn-book" style="display: inline-block; width: auto; padding: 12px 30px;"><i class="fas fa-plus-circle"></i> EVENT ERSTELLEN</a>
         </div>
     <?php else: ?>
         <?php foreach ($events_by_month as $year => $months_in_year): ?>
@@ -28,13 +28,13 @@ if (!isset($events_by_month) || !isset($months) || !isset($weekdays)) {
 
                                     if ($available <= 0) {
                                         $spots_class = 'spots-ausgebucht';
-                                        $spots_text = '🔴 AUSGEBUCHT';
+                                        $spots_text = '<i class="fas fa-ban"></i> AUSGEBUCHT';
                                     } elseif ($available <= $event['capacity'] * 0.2) {
                                         $spots_class = 'spots-wenig';
-                                        $spots_text = '⚠️ NUR NOCH ' . $available;
+                                        $spots_text = '<i class="fas fa-exclamation-triangle"></i> NUR NOCH ' . $available;
                                     } else {
                                         $spots_class = 'spots-verfuegbar';
-                                        $spots_text = '🟢 ' . $available . ' FREI';
+                                        $spots_text = '<i class="fas fa-check-circle"></i> ' . $available . ' FREI';
                                     }
 
                                     $event_image = !empty($event['image']) ? $event['image'] : 'img/festival-default.jpg';
@@ -43,30 +43,30 @@ if (!isset($events_by_month) || !isset($months) || !isset($weekdays)) {
                                     <div class="card-image">
                                         <img src="<?php echo htmlspecialchars($event_image); ?>" alt="<?php echo htmlspecialchars($event['title']); ?>">
                                         <div class="card-overlay"></div>
-                                        <div class="status-badge status-upcoming">🔥 BEVORSTEHEND</div>
+                                        <div class="status-badge status-upcoming"><i class="fas fa-fire"></i> BEVORSTEHEND</div>
                                         <div class="capacity-badge <?php echo $spots_class; ?>"><?php echo $spots_text; ?></div>
-                                        <div class="date-badge"><?php echo htmlspecialchars(date('d.m.Y', strtotime($event['date']))); ?></div>
+                                        <div class="date-badge"><i class="fas fa-calendar-day"></i> <?php echo htmlspecialchars(date('d.m.Y', strtotime($event['date']))); ?></div>
                                     </div>
                                     <div class="card-content">
                                         <div class="event-title"><?php echo htmlspecialchars($event['title']); ?></div>
-                                        <div class="event-date">📅 <?php echo htmlspecialchars($weekday_de . ', ' . date('d.m.Y - H:i', strtotime($event['date']))); ?></div>
-                                        <div class="event-location">📍 <?php echo htmlspecialchars($event['location']); ?></div>
-                                        <div class="organizer-info">🎪 Veranstaltet von <?php echo htmlspecialchars($event['organizer_name']); ?></div>
+                                        <div class="event-date"><i class="fas fa-calendar-alt"></i> <?php echo htmlspecialchars($weekday_de . ', ' . date('d.m.Y - H:i', strtotime($event['date']))); ?></div>
+                                        <div class="event-location"><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($event['location']); ?></div>
+                                        <div class="organizer-info"><i class="fas fa-users"></i> Veranstaltet von <?php echo htmlspecialchars($event['organizer_name']); ?></div>
                                         <div class="capacity-info">
-                                            <span>🎟️ <?php echo htmlspecialchars($event['registered_count']); ?> / <?php echo htmlspecialchars($event['capacity']); ?> angemeldet</span>
+                                            <span><i class="fas fa-ticket-alt"></i> <?php echo htmlspecialchars($event['registered_count']); ?> / <?php echo htmlspecialchars($event['capacity']); ?> angemeldet</span>
                                             <div class="progress-bar">
                                                 <div class="progress-fill" style="width: <?php echo htmlspecialchars($capacityPercentage); ?>%"></div>
                                             </div>
                                         </div>
                                         <div class="event-buttons">
                                             <?php if ($isRegistered): ?>
-                                                <button class="btn-book angemeldet" disabled>BEREITS ANGEMELDET</button>
+                                                <button class="btn-book angemeldet" disabled><i class="fas fa-check"></i> BEREITS ANGEMELDET</button>
                                             <?php elseif (!isOrganizer() && $available > 0): ?>
-                                                <a href="api/register_event.php?event_id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-book" onclick="return confirm('Möchtest du dich für \'<?php echo addslashes(htmlspecialchars($event['title'])); ?>\' anmelden?')">🎫 ANMELDEN</a>
+                                                <a href="api/register_event.php?event_id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-book" onclick="return confirm('Möchtest du dich für \'<?php echo addslashes(htmlspecialchars($event['title'])); ?>\' anmelden?')">ANMELDEN</a>
                                             <?php elseif (!isOrganizer() && $available <= 0): ?>
-                                                <button class="btn-book deaktiviert" disabled>AUSGEBUCHT</button>
+                                                <button class="btn-book deaktiviert" disabled><i class="fas fa-ban"></i> AUSGEBUCHT</button>
                                             <?php else: ?>
-                                                <a href="dashboard.php" class="btn-book">EVENT VERWALTEN</a>
+                                                <a href="dashboard.php" class="btn-book"><i class="fas fa-sliders-h"></i> EVENT VERWALTEN</a>
                                             <?php endif; ?>
                                             <a href="event_details.php?id=<?php echo htmlspecialchars($event['id']); ?>" class="btn-book" style="margin-top: 10px;">Details</a>
                                         </div>
